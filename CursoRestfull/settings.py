@@ -38,7 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'pontos_turisticos',
-    'atracoes'
+    'atracoes',
+    'comentarios',
+    'avaliacoes',
 ]
 
 MIDDLEWARE = [

@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'atracoes',
     'comentarios',
     'avaliacoes',
+    'endereco',
 ]
 
 MIDDLEWARE = [

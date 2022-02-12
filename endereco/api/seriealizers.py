@@ -7,4 +7,4 @@ from endereco.models import Enderecos
 class EnderecosSerializer(ModelSerializer):
     class Meta:
         model = Enderecos
-        fields = ('linha1', 'linha2', 'provincia', 'cidade')
+        fields = ('id','linha1', 'linha2', 'provincia', 'cidade')

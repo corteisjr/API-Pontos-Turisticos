@@ -9,4 +9,4 @@ class Enderecos(models.Model):
     longititude = models.IntegerField(blank=True, null=True)
 
     def _str_(self):
-        return str(self.cidade)
+        return str(self.linha1)

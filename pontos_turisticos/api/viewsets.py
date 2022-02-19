@@ -10,35 +10,50 @@ class PontoTuristicoViewSet(ModelViewSet):
     
     def get_queryset(self):
         # Filtragem de queryset
+        id = self.request.query_params.get('id', None)
+        nome = self.request.query_params.get('nome', None)
+        descricao = self.request.query_params.get('descricao', None)
+        queryset = PontoTuristico.objects.all()
+        if id:
+            queryset = PontoTuristico.objects.filter(pk=id)
+        if nome:
+            queryset.filter(nome=nome)
+        
+        if descricao:
+            queryset.filter(descricao=descricao)
+                
         return   PontoTuristico.objects.filter(aprovado=True)
     
     # Action personalizada
 
-    @action(methods=['get'], detail=True)
+    @action(methods=['get', 'post'], detail=True)
     def denunciar(self, request, pk=None):
         pass
     
+    @action(
+        methods=['get'], 
+        detail=False
+    )
+    def teste(self, request):
+        pass
     # Sobscrevendo  a action de GET
 
-"""
+
     def list(self, request, *args, **kwargs):
         return Response({'Teste': 123})
     
     #Sobscrevendo a action POST
     def create(self, request, *args, **kwargs):
-        return Response({'hello'  : request.data['nome']})
+        return super(PontoTuristicoViewSet, self).create(request, *args, **kwargs)
     
     def destroy(self, request, *args, **kwargs):
-        pass
+       return super(PontoTuristicoViewSet, self).destroy(request, *args, **kwargs)
     
     def retrieve(self, request, *args, **kwargs):
-        pass
+        return super(PontoTuristicoViewSet, self).retrieve(request, *args, **kwargs)
     
     def update(self, request, *args, **kwargs):
-        pass
+        return super(PontoTuristicoViewSet, self).update(request, *args, **kwargs)
         
-    def partial_update(self, request, *args. **kwargs):
-        pass
-        
-"""
-
+    def partial_update(self, request, *args, **kwargs):
+        return super(PontoTuristicoViewSet, self).partial_update(request, *args, **kwargs)

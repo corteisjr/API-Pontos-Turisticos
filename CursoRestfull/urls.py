@@ -2,6 +2,8 @@ from atexit import register
 from django.contrib import admin
 from django.urls import include, path
 from rest_framework import routers
+from django.conf import settings
+from django.conf.urls.static import static
 from pontos_turisticos.api.viewsets import PontoTuristicoViewSet
 from atracoes.api.viewset import AtracoesViewSet
 from endereco.api.viewsets import EnderecosViewSet
@@ -20,4 +22,4 @@ router.register(r'avaliacoes', AvaliacoesViewSet)
 urlpatterns = [
     path('', include(router.urls)),
     path('admin/', admin.site.urls),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

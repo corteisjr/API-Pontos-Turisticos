@@ -7,7 +7,7 @@ from .serializers import PontoTuristicoSerializer
 class PontoTuristicoViewSet(ModelViewSet):
 
     serializer_class = PontoTuristicoSerializer
-    
+    lookup_field = 'nome'
     def get_queryset(self):
         # Filtragem de queryset
         id = self.request.query_params.get('id', None)

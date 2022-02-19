@@ -79,7 +79,7 @@ WSGI_APPLICATION = 'CursoRestfull.wsgi.application'
 
 
 # Database
-# https://docs.djangoproject.com/en/3.2/ref/settings/#databases
+
 from dj_database_url import parse as dburl
 
 default_dburl = 'sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3')

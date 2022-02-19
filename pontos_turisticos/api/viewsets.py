@@ -3,12 +3,13 @@ from rest_framework.decorators import action
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.authentication import TokenAuthentication
+from rest_framework.permissions import DjangoModelPermissions, IsAdminUser
 from pontos_turisticos.models import PontoTuristico
 from .serializers import PontoTuristicoSerializer
 
 class PontoTuristicoViewSet(ModelViewSet):
     permission_classes = [IsAuthenticated,]
-    authentication_classes = (TokenAuthentication, )
+    authentication_classes = (TokenAuthentication,)
     serializer_class = PontoTuristicoSerializer
     lookup_field = 'nome'
     def get_queryset(self):

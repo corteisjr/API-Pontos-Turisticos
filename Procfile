@@ -1,0 +1,1 @@
+web: gunicorn CursoRestfull.wsgi --log-file -

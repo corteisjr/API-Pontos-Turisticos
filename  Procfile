@@ -1,1 +1,1 @@
-web: gunicorn CursoRestfull.wsgi --log--file -
+web: gunicorn CursoRestfull.wsgi

@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-ALLOWED_HOSTS = ['https://tourists-spotss.herokuapp.com/', 'http://127.0.0.1:8000/']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -81,6 +81,7 @@ WSGI_APPLICATION = 'CursoRestfull.wsgi.application'
 # Database
 
 from dj_database_url import parse as dburl
+from decouple import config
 
 default_dburl = 'sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3')
 DATABASES = { 'default': config('DATABASE_URL', default=default_dburl, cast=dburl), }

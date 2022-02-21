@@ -1,1 +1,1 @@
-web: gunicorn CursoRestfull.wsgi 
+web: gunicorn CursoRestfull.wsgi

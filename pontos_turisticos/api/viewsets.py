@@ -8,8 +8,8 @@ from pontos_turisticos.models import PontoTuristico
 from .serializers import PontoTuristicoSerializer
 
 class PontoTuristicoViewSet(ModelViewSet):
-    permission_classes = [IsAuthenticated,]
-    authentication_classes = (TokenAuthentication,)
+    # permission_classes = [IsAuthenticated,]
+    # authentication_classes = (TokenAuthentication,)
     serializer_class = PontoTuristicoSerializer
     lookup_field = 'nome'
     def get_queryset(self):
@@ -40,6 +40,15 @@ class PontoTuristicoViewSet(ModelViewSet):
     )
     def teste(self, request):
         pass
+    
+    # @action(methods=['post'], detail=True)
+    # def associar_atracoes(self, request, pk):
+    #     atracoes = request.data['ids']
+    #     ponto = PontoTuristico.objects.get(id=pk)
+    #     ponto.atracoes.set(atracoes)
+    #     ponto.save()
+    #     return ponto
+        
     # Sobscrevendo  a action de GET
 
 
